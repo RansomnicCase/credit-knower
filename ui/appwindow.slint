@@ -1,0 +1,47 @@
+import { Button, VerticalBox, HorizontalBox } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    in-out property <int> counter: 42;
+    in-out property <int> sem1: 18;
+    in-out property <int> sem2: 18;
+    in-out property <int> sem3: 21.5;
+    in-out property <int> sem4: 22.5;
+    callback request-increase_value();
+    callback request-reset_value();
+    callback request-tell_credits();
+    VerticalBox {
+        Text {
+            text: "Counter: \{root.counter}";
+        }
+
+        HorizontalBox {
+            Button {
+                text: "sem1";
+                clicked => {
+                    root.request-increase_value();
+                }
+            }
+
+            Button {
+                text: "sem2";
+                clicked => {
+                    root.request-reset_value();
+                }
+            }
+
+            Button {
+                text: "sem3";
+                clicked => {
+                    root.request_reset_value();
+                }
+            }
+
+            Button {
+                text: "sem4";
+                clicked => {
+                    root.request-tell_credits();
+                }
+            }
+        }
+    }
+}
